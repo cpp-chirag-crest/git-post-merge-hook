@@ -1,8 +1,9 @@
 #!/bin/sh
-# --- if there is some updates from "master" branch when you take a pull then only execute commands. 
+# --- If there is some updates from "master" branch when you take a pull then only execute commands. 
+# --- This example is for window OS only so if you want to use it on other OS then adjust commands accordingly.
 if [ "$(git name-rev --name-only HEAD)" == "master" ]
 then
-	# use below commands for any front end Js application. you can replace "yran" with "npm" based on your configuration.
+	# use below commands for any Front End JS application. you can replace "yran" with "npm" based on your configuration.
 	exec < /dev/tty
 	yarn
 	
