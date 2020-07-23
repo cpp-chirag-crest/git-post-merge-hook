@@ -1,7 +1,15 @@
 #!/bin/sh
-# --- if there is some updates from master then only execute commands. you can replace "yran" with "npm" if you want.
+# --- if there is some updates from master then only execute commands. 
 if [ "$(git name-rev --name-only HEAD)" == "master" ]
 then
+	# use below commands for any front end Js application. you can replace "yran" with "npm" based on your configuration.
 	exec < /dev/tty
 	yarn
+	
+	# use below commands for laravel
+	composer install
+	exec php artisan migrate
+	exec php artisan cache:clear	
+	exec php artisan route:clear
+	exec php artisan config:clear
 fi
