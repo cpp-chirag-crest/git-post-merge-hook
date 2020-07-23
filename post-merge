@@ -1,0 +1,7 @@
+#!/bin/sh
+# --- if there is some updates from master then only execute commands. you can replace "yran" with "npm" if you want.
+if [ "$(git name-rev --name-only HEAD)" == "master" ]
+then
+	exec < /dev/tty
+	yarn
+fi
